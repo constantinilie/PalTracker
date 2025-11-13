@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_google_sign_in_cred); // vezi layout-ul de mai jos
+        setContentView(R.layout.login_windows); // vezi layout-ul de mai jos
 
         // Initialize Firebase Auth (exact cum ai cerut)
         mAuth = FirebaseAuth.getInstance();
@@ -42,7 +43,7 @@ public class LogInActivity extends AppCompatActivity {
         credentialManager = CredentialManager.create(this);
 
         // Buton simplu care pornește login-ul
-        Button signInButton = findViewById(R.id.sign_in_button);
+        LinearLayout signInButton = findViewById(R.id.btnGoogleCustom);
         signInButton.setOnClickListener(v -> startGoogleSignIn());
     }
 
