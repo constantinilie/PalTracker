@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "322409649612",
+    "project_id": "paltracker-11626",
+    "storage_bucket": "paltracker-11626.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322409649612:android:03809728237c67f075f969",
+        "android_client_info": {
+          "package_name": "com.example.paltracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322409649612-s6io6ag1aqdus0ub3vi6sjff4v769916.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.paltracker",
+            "certificate_hash": "dc918055464d3321da2ddb5ba83d9488734ce1d2"
+          }
+        },
+        {
+          "client_id": "322409649612-9re39ahmacho7jauco64ts0vj01qd3tp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzIqCdTLxnNBDWl_6tZe-rV-XCNsOXoW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322409649612-9re39ahmacho7jauco64ts0vj01qd3tp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
