@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PalTracker</string>
+    <string name="default_web_client_id">322409649612-9re39ahmacho7jauco64ts0vj01qd3tp.apps.googleusercontent.com</string>
+
 </resources>
