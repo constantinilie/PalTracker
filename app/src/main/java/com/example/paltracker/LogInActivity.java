@@ -25,11 +25,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class LogInActivity extends AppCompatActivity {
 
     private static final String TAG = "LogInActivity";
     private FirebaseAuth mAuth;                 // exact ca în exemplul tău
     private CredentialManager credentialManager;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +49,8 @@ public class LogInActivity extends AppCompatActivity {
 
         // Credential Manager
         credentialManager = CredentialManager.create(this);
+
+        db = FirebaseFirestore.getInstance();
 
         // Buton simplu care pornește login-ul
         LinearLayout signInButton = findViewById(R.id.btnGoogleCustom);
@@ -99,7 +109,11 @@ public class LogInActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
-                        updateUI(user);
+                        if(user != null){
+                            saveUserInFirestore(user);
+                        }else{
+                            updateUI(null);//updateUI(user);
+                        }
                     } else {
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
                         updateUI(null);
@@ -123,5 +137,34 @@ public class LogInActivity extends AppCompatActivity {
         } else {
             // user null sau sign-in eșuat
         }
+    }
+
+    private void saveUserInFirestore(@NonNull FirebaseUser firebaseUser) {
+        String uid = firebaseUser.getUid();
+
+        Map<String, Object> userData = new HashMap<>();
+        userData.put("displayName", firebaseUser.getDisplayName());
+        userData.put("email", firebaseUser.getEmail());
+        if (firebaseUser.getPhotoUrl() != null) {
+            userData.put("photoUrl", firebaseUser.getPhotoUrl().toString());
+        }
+        userData.put("lastLogin", FieldValue.serverTimestamp());
+
+        // Aici poți pune orice câmpuri extra vrei tu:
+        // userData.put("bio", "Salut, sunt nou în aplicație");
+        // userData.put("age", 20);
+
+        db.collection("users")
+                .document(uid)                      // ID document = UID din Authentication
+                .set(userData, SetOptions.merge())  // merge = nu șterge câmpurile vechi
+                .addOnSuccessListener(aVoid -> {
+                    Log.d(TAG, "User profile saved in Firestore");
+                    updateUI(firebaseUser);         // mergi mai departe în app
+                })
+                .addOnFailureListener(e -> {
+                    Log.w(TAG, "Error saving user profile", e);
+                    Toast.makeText(this, "Eroare la salvarea profilului", Toast.LENGTH_SHORT).show();
+                    updateUI(firebaseUser);         // chiar dacă a picat, ești logat
+                });
     }
 }
