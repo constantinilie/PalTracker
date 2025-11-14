@@ -153,6 +153,7 @@ public class LogInActivity extends AppCompatActivity {
         // Aici poți pune orice câmpuri extra vrei tu:
         // userData.put("bio", "Salut, sunt nou în aplicație");
         // userData.put("age", 20);
+        //plm
 
         db.collection("users")
                 .document(uid)                      // ID document = UID din Authentication
