@@ -2,8 +2,11 @@ package com.example.paltracker;
 
 import static android.content.ContentValues.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -14,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button logoutButton = findViewById(R.id.logoutbtn);
+
+        logoutButton.setOnClickListener(v -> LogOut());
 
         //EXEMPLU UTILIZARE BD
         /*
@@ -58,5 +65,11 @@ public class MainActivity extends AppCompatActivity {
          */
 
 
+    }
+    public void LogOut(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, LogInActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
