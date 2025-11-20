@@ -41,8 +41,6 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.auth)
-    implementation(libs.credentials)
-    implementation(libs.credentials.play.services.auth)
     implementation(libs.googleid)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -50,7 +48,4 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
     implementation("com.google.firebase:firebase-analytics")
-    implementation("androidx.credentials:credentials:1.2.0")
-    implementation("androidx.credentials:credentials-play-services-auth:1.2.0")
-    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.0")
 }
