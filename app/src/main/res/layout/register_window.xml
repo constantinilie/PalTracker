@@ -75,77 +75,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:padding="20dp"
-            android:text="Welcome Back"
+            android:text="Create an account"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
-
-        <LinearLayout
-            android:id="@+id/btnGoogleCustom"
-            android:layout_width="305dp"
-            android:layout_height="60dp"
-            android:background="@drawable/google_button_bg_selector"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/googleLogo"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:contentDescription=""
-                android:src="@drawable/logo" />
-
-            <TextView
-                android:id="@+id/googleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Continue with Google"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <!-- or separator -->
-        <LinearLayout
-            android:layout_width="305dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#CCCCCC" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:text="or"
-                android:textColor="#888888"
-                android:textSize="14sp" />
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"
-                android:background="#CCCCCC" />
-        </LinearLayout>
-
-        <!--Email and password fields -->
         <EditText
-            android:id="@+id/loginEmailInput"
+            android:id="@+id/registerUsernameInput"
+            android:layout_width="305dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_bg"
+            android:hint="Username"
+            android:inputType="text"
+            android:padding="14dp"
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E" />
+        <EditText
+            android:id="@+id/registerEmailInput"
             android:layout_width="305dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -155,9 +102,8 @@
             android:padding="14dp"
             android:textColor="#000000"
             android:textColorHint="#9E9E9E" />
-
         <EditText
-            android:id="@+id/loginPasswordInput"
+            android:id="@+id/registerPasswordInput"
             android:layout_width="305dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -167,6 +113,7 @@
             android:padding="14dp"
             android:textColor="#000000"
             android:textColorHint="#9E9E9E" />
+
 
 
         <LinearLayout
@@ -201,7 +148,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Don't have an account?"
+                android:text="Do you have an account?"
                 android:textColor="#777777"
                 android:textSize="13sp" />
 
@@ -210,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:text="Sign up"
+                android:text="Sign in"
                 android:textColor="#3F51B5"
                 android:textSize="13sp"
                 android:textStyle="bold" />

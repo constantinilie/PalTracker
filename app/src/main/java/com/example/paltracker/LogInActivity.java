@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -56,6 +58,12 @@ public class LogInActivity extends AppCompatActivity {
         // Buton simplu care pornește login-ul
         LinearLayout signInButton = findViewById(R.id.btnGoogleCustom);
         signInButton.setOnClickListener(v -> startGoogleSignIn());
+        TextView signUpButton = findViewById(R.id.signUp);
+        signUpButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LogInActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     // EXACT fluxul cerut: construim GoogleIdOption + Request
