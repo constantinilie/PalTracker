@@ -2,6 +2,10 @@ package com.example.paltracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -9,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 
 public class RegisterActivity extends AppCompatActivity{
@@ -20,11 +25,19 @@ public class RegisterActivity extends AppCompatActivity{
         setContentView(R.layout.register_window);
 
         userManager=new FirestoreUserManager();
+        mAuth = FirebaseAuth.getInstance();
+        LinearLayout signUpButton = findViewById(R.id.signUpBtn);
+        EditText email = findViewById(R.id.registerEmailInput);
+        EditText user = findViewById(R.id.registerUsernameInput);
+        EditText password = findViewById(R.id.registerPasswordInput);
+
+        signUpButton.setOnClickListener(v -> registerUser(email.getText().toString().trim(),user.getText().toString().trim(),password.getText().toString().trim()));
+
 
 
     }
 
-    private void registerUser(String email, String password) {
+    private void registerUser(String email, String name, String password) {
 
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Completează toate câmpurile!", Toast.LENGTH_SHORT).show();
@@ -36,10 +49,21 @@ public class RegisterActivity extends AppCompatActivity{
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
-                            userManager.saveUserInFirestore(user);
-                            Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-                            startActivity(intent);
-                            finish();
+
+                            UserProfileChangeRequest profileUpdates =
+                                    new UserProfileChangeRequest.Builder()
+                                            .setDisplayName(name)
+                                            .build();
+                            user.updateProfile(profileUpdates)
+                                    .addOnCompleteListener(updateTask -> {
+
+
+                                        userManager.saveUserInFirestore(user);
+
+                                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    });
                         }
                     } else {
                         Toast.makeText(this,

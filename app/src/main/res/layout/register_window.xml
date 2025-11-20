@@ -117,7 +117,7 @@
 
 
         <LinearLayout
-            android:id="@+id/btnEmailLogin"
+            android:id="@+id/signUpBtn"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="16dp"
@@ -132,7 +132,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Sign in"
+                android:text="Sign Up"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />

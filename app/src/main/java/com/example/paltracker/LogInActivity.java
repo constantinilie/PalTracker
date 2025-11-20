@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -59,6 +61,17 @@ public class LogInActivity extends AppCompatActivity {
         // Buton simplu care pornește login-ul
         LinearLayout signInButton = findViewById(R.id.btnGoogleCustom);
         signInButton.setOnClickListener(v -> startGoogleSignIn());
+        TextView registerButton = findViewById(R.id.signUp);
+        LinearLayout signInButtonMail= findViewById(R.id.signInBtn);
+
+        EditText email=findViewById(R.id.loginEmailInput);
+        EditText password=findViewById(R.id.loginPasswordInput);
+        signInButtonMail.setOnClickListener(v->LogIn(email.getText().toString().trim(),password.getText().toString().trim()));
+        registerButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LogInActivity.this,RegisterActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     private void LogIn(String email, String password)
@@ -147,6 +160,7 @@ public class LogInActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if(user != null){
                             userManager.saveUserInFirestore(user);
+                            updateUI(user);
                         }else{
                             updateUI(null);//updateUI(user);
                         }
