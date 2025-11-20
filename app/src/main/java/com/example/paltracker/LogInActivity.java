@@ -1,5 +1,6 @@
 package com.example.paltracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.util.Log;
@@ -133,7 +134,9 @@ public class LogInActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             Toast.makeText(this, "Salut, " + user.getEmail(), Toast.LENGTH_SHORT).show();
-            // TODO: navigate to Home
+            Intent intent = new Intent(LogInActivity.this,MainActivity.class);
+            startActivity(intent);
+            finish();
         } else {
             // user null sau sign-in eșuat
         }
