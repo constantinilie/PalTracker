@@ -143,6 +143,19 @@
                 android:background="#CCCCCC" />
         </LinearLayout>
 
+        <!-- Email warning -->
+
+        <TextView
+            android:id="@+id/loginEmailWarning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please enter a valid email"
+            android:textColor="#FF4444"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:paddingStart="4dp"
+            android:paddingBottom="2dp"/>
+
         <!--Email and password fields -->
         <EditText
             android:id="@+id/loginEmailInput"
@@ -174,7 +187,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/sign_in_bg"
+            android:background="@drawable/sign_in_and_register_ripple"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="12dp"
