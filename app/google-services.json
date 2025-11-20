@@ -12,7 +12,12 @@
           "package_name": "com.example.paltracker"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "322409649612-9re39ahmacho7jauco64ts0vj01qd3tp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDzIqCdTLxnNBDWl_6tZe-rV-XCNsOXoW0"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322409649612-9re39ahmacho7jauco64ts0vj01qd3tp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
