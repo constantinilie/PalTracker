@@ -13,4 +13,6 @@
     <string name="create_an_account">Create an account</string>
     <string name="username">Username</string>
     <string name="have_account">Do you have an account?</string>
+    <string name="nicu_placeholder">Nicusor de la Braila</string>
+    <string name="nicu_status_placeholder">La Piata Mare</string>
 </resources>
