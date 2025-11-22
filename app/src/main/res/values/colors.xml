@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="chinese_white">#E0E0E0</color>
+    <color name="platinum">#E8E8E8</color>
+    <color name="gainsboro">#DDDDDD</color>
+    <color name="semi_transparent_white">#33FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent_black">#22000000</color>
+    <color name="chinese_silver">#CCCCCC</color>
+    <color name="sonic_silver">#777777</color>
+    <color name="taupe_gray">#888888</color>
+    <color name="spanish_gray">#9E9E9E</color>
+    <color name="coral_red">#FF4444</color>
+    <color name="violet_blue">#3F51B5</color>
+    <color name="blueberry">#4287f5</color>
+    <color name="eucalyptus">#41fa9d</color>
 </resources>

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,7 +45,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_windows); // vezi layout-ul de mai jos
+        setContentView(R.layout.activity_login); // vezi layout-ul de mai jos
 
         // Initialize Firebase Auth (exact cum ai cerut)
         mAuth = FirebaseAuth.getInstance();

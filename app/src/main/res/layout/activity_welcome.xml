@@ -5,7 +5,7 @@
     android:id="@+id/welcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/color_gradient">
+    android:background="@drawable/grad_auth">
 
     <LinearLayout
         android:id="@+id/logoContainer"
@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:background="@drawable/circle_white"
+            android:background="@drawable/bg_circle_white"
             android:elevation="4dp"
             android:gravity="center">
 
@@ -30,7 +30,7 @@
                 android:id="@+id/logoIcon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/gps" />
+                android:src="@drawable/ic_gps" />
 
         </LinearLayout>
 
@@ -40,8 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="PalTracker"
-            android:textColor="#FFFFFF"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -51,8 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Share your location with friends"
-            android:textColor="#E8E8E8"
+            android:text="@string/app_slogan"
+            android:textColor="@color/platinum"
             android:textSize="14sp" />
 
 

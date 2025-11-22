@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">PalTracker</string>
+    <string name="app_slogan">Share your location with friends</string>
+    <string name="welcome">Welcome</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="or">or</string>
+    <string name="invalid_email">Please enter a valid email</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="username">Username</string>
+    <string name="have_account">Do you have an account?</string>
 </resources>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#33FFFFFF"> <!-- light white ripple -->
-
+    android:color="@color/semi_transparent_white"> <!-- light white ripple -->
     <item>
         <shape>
-            <solid android:color="#3F51B5"/>  <!-- your button color -->
+            <solid android:color="@color/violet_blue"/>  <!-- your button color -->
             <corners android:radius="10dp"/>
         </shape>
     </item>
