@@ -3,11 +3,7 @@ package com.example.paltracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CancellationSignal;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -35,8 +31,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,42 +61,16 @@ public class LogInActivity extends AppCompatActivity {
         // Buton simplu care pornește login-ul
         LinearLayout signInButton = findViewById(R.id.btnGoogleCustom);
         signInButton.setOnClickListener(v -> startGoogleSignIn());
-        TextView signUpButton = findViewById(R.id.signUp);
-        signUpButton.setOnClickListener(v -> {
-            Intent intent = new Intent(LogInActivity.this, RegisterActivity.class);
+        TextView registerButton = findViewById(R.id.signUp);
+        LinearLayout signInButtonMail= findViewById(R.id.signInBtn);
+
+        EditText email=findViewById(R.id.loginEmailInput);
+        EditText password=findViewById(R.id.loginPasswordInput);
+        signInButtonMail.setOnClickListener(v->LogIn(email.getText().toString().trim(),password.getText().toString().trim()));
+        registerButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LogInActivity.this,RegisterActivity.class);
             startActivity(intent);
-        });
-
-        EditText emailInput = findViewById(R.id.loginEmailInput);
-        TextView emailWarning = findViewById(R.id.loginEmailWarning);
-
-        emailInput.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String email = s.toString().trim();
-
-                if(email.isEmpty()){
-                    emailWarning.setVisibility(View.GONE);
-                    return;
-                }
-
-                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    emailWarning.setVisibility(View.VISIBLE);
-
-                } else {
-                    emailWarning.setVisibility(View.GONE);
-                }
-            }
+            finish();
         });
     }
 
@@ -192,7 +160,7 @@ public class LogInActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if(user != null){
                             userManager.saveUserInFirestore(user);
-
+                            updateUI(user);
                         }else{
                             updateUI(null);//updateUI(user);
                         }
